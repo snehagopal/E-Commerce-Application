@@ -1,4 +1,4 @@
-![Screenshot (45)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/3ebb3481-4a23-46c7-9862-6883d638899d)# Salesforce LWC E-commerce Application
+# Salesforce LWC E-commerce Application
 
 Welcome to the Salesforce Lightning Web Component (LWC) E-commerce Application! This application is designed to provide a seamless and interactive online shopping experience within the Salesforce ecosystem.
 
