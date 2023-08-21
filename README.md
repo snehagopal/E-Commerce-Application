@@ -1,4 +1,4 @@
-# Salesforce LWC E-commerce Application
+![Screenshot (45)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/3ebb3481-4a23-46c7-9862-6883d638899d)# Salesforce LWC E-commerce Application
 
 Welcome to the Salesforce Lightning Web Component (LWC) E-commerce Application! This application is designed to provide a seamless and interactive online shopping experience within the Salesforce ecosystem.
 
@@ -67,22 +67,25 @@ Contributions are encouraged! If you wish to contribute to the development of th
 5. Open a pull request to the main repository's `main` branch.
 
 **Images**
-![Screenshot (59)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/16c61cd8-f120-499e-b101-3b764ef666eb)
-![Uploading Screenshot (58).png…]()
-![Uploading Screenshot (57).png…]()
-![Uploading Screenshot (56).png…]()
-![Uploading Screenshot (55).png…]()
-![Uploading Screenshot (54).png…]()
-![Uploading Screenshot (53).png…]()
-![Uploading Screenshot (52).png…]()
-![Uploading Screenshot (49).png…]()
-![Screenshot (46)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/6ae569d3-9e2a-4d0c-a313-e70fca7adcc4)
-![Uploading Screenshot (45).png…]()
-![Uploading Screenshot (44).png…]()
-![Uploading Screenshot (43).png…]()
-![Uploading Screenshot (36).png…]()
-![Uploading Screenshot (35).png…]()![Uploading Screenshot (48).png…]()
-![Uploading Screenshot (47).png…]()
+
+![Screenshot (35)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/b953c14d-2f2e-42cb-b317-4ac30fd7dd04)
+![Screenshot (36)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/fbb35fe7-78da-4dfb-a0cc-c83dae52083c)
+![Screenshot (43)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/0b08f37e-e766-4a17-be58-ba5e1c8aafc4)
+![Screenshot (44)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/0618b6ff-2891-46e6-87a8-611cc2e341a4)
+![Screenshot (45)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/a1b54889-75e9-4605-9c87-c9a742ee3070)
+![Screenshot (46)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/7bfe092a-a7f7-4b2f-a9df-77230f0cb6f0)
+![Screenshot (47)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/a2bf8e8a-504a-4e0b-928e-41befde068ed)
+![Screenshot (48)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/9aad407c-3261-4a40-bb6a-e4bf79bb47bf)
+![Screenshot (49)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/bdf4066f-0ce5-4d4e-8cc2-e580b009b10a)
+![Screenshot (52)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/6e33392a-ae04-4f52-836f-cfbb4b4a0a8b)
+![Screenshot (53)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/104deb05-67d6-4d5d-9ba9-007aa14d1bfc)
+![Screenshot (54)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/190ebeee-3243-40f2-afab-b8ec2a299df4)
+![Screenshot (55)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/8889d3d0-0a1a-4425-b96b-02e0b40ab15a)
+![Screenshot (56)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/fc05c1e0-5675-4ccb-9417-90992c41a589)
+![Screenshot (57)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/76c891a3-63c4-49fd-afd0-d4d4f1df3a5c)
+![Screenshot (58)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/0fa5cd6f-b04e-4838-9b99-639eaef6c785)
+![Screenshot (59)](https://github.com/snehagopal/E-Commerce-Application/assets/58037849/89bf8c45-f8f2-45c3-8f27-ae3ec8a57a36)
+
 
 
 
