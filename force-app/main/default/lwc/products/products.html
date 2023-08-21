@@ -1,0 +1,345 @@
+<template>
+    <lightning-card>
+    <lightning-tabset>
+
+        <lightning-tab label="Mens">
+           
+            <div class="button-container">
+                <lightning-button label="Clothing" variant="brand" onclick={handleMensClothing}></lightning-button>
+                <lightning-button label="Watches" variant="brand" onclick={handleMensWatches}></lightning-button>
+                <lightning-button label="Shoes" variant="brand" onclick={handleMensShoes}></lightning-button>
+            </div>
+            <div class="card-container">
+                <template if:true={showClothing}>
+                    <template for:each={clothings} for:item="clothing">
+                        <div key={clothing.Id} class="card-wrapper" data-id={clothing.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={clothing.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={clothing.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{clothing.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                        <br/><i>{clothing.Status__c}</i></h2>
+                                        </template>
+                                       
+                                       <div class="quantity-container">
+                                        <label for="quantity1" class="quantity-label">Quantity:</label>
+                                        <input type="number" id="quantity1" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                      </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={clothing.Id} data-product-name={clothing.Name} data-product-status={clothing.Status__c} data-total-stock={clothing.Total_Stock__c}></lightning-button> 
+                                    
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={clothing.Id} data-product-name={clothing.Name} data-product-status={clothing.Wishlist_Status__c}></lightning-button>
+                                    </div>    
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={showWatches}>
+                    <template for:each={watches} for:item="watch">
+                        <div key={watch.Id} class="card-wrapper" data-id={watch.Id}>
+                            <lightning-card class="card-tile ">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={watch.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={watch.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{watch.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                            <br/><i>{watch.Status__c}</i></h2>
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity2" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity2" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color"  label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={watch.Id} data-product-name={watch.Name} data-product-status={watch.Status__c} data-total-stock={watch.Total_Stock__c}></lightning-button> 
+                                    <lightning-button  class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={watch.Id} data-product-name={watch.Name}></lightning-button> 
+                                </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={showShoes}>
+                    <template for:each={shoes} for:item="shoe">
+                        <div key={shoe.Id} class="card-wrapper" data-id={shoe.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={shoe.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={shoe.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{shoe.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                            <br/><i>{shoe.Status__c}</i></h2>
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity3" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity3" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={shoe.Id} data-product-name={shoe.Name} data-product-status={shoe.Status__c} data-total-stock={shoe.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={shoe.Id} data-product-name={shoe.Name}></lightning-button> 
+        
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+        
+                </template>
+            </div>
+            <div class="pn-button-container">
+                <template if:true={showPreviousButton}>
+                    <lightning-button variant="brand" label="Previous" onclick={handlePreviousPage}></lightning-button>
+                </template>
+                <template if:true={showNextButton}>
+                    <lightning-button variant="brand" label="Next" onclick={handleNextPage}></lightning-button>
+                </template>
+
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Womens">
+            <div class="button-container">
+                <lightning-button label="Clothing" variant="brand" onclick={handleWomensClothing}></lightning-button>
+                <lightning-button label="Jewellery" variant="brand" onclick={handleWomensJewellery}></lightning-button>
+                <lightning-button label="Beauty" variant="brand" onclick={handleWomensBeauty}></lightning-button>
+            </div>
+            <div class="card-container">
+                <template if:true={showWomensClothing}>
+                    <template for:each={womensclothings} for:item="womensclothing">
+                        <div key={womensclothing.Id} class="card-wrapper" data-id={womensclothing.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={womensclothing.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={womensclothing.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{womensclothing.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                            <br/><i>{womensclothing.Status__c}</i></h2>
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity4" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity4" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={womensclothing.Id} data-product-name={womensclothing.Name} data-product-status={womensclothing.Status__c} data-total-stock={womensclothing.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={womensclothing.Id} data-product-name={womensclothing.Name}></lightning-button> 
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+        
+                </template>
+               
+                <template if:true={showJewellery}>
+                    <template for:each={jewelleries} for:item="jewellery">
+                        <div key={jewellery.Id} class="card-wrapper" data-id={jewellery.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={jewellery.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={jewellery.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{jewellery.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                            <br/><i>{jewellery.Status__c}</i></h2>
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity5" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity5" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={jewellery.Id} data-product-name={jewellery.Name} data-product-status={jewellery.Status__c} data-total-stock={jewellery.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={jewellery.Id} data-product-name={jewellery.Name}></lightning-button> 
+                                </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={showBeauty}>
+                    <template for:each={beauties} for:item="beauty">
+                        <div key={beauty.Id} class="card-wrapper" data-id={beauty.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={beauty.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={beauty.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{beauty.Name}</b> 
+                                            <br/>Price: {pricebookEntry.UnitPrice}>
+                                            <br/><i>{beauty.Status__c}</i></h2>
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity6" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity6" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={beauty.Id} data-product-name={beauty.Name} data-product-status={beauty.Status__c} data-total-stock={beauty.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={beauty.Id} data-product-name={beauty.Name}></lightning-button> 
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+        
+                </template>
+            </div>
+            <div class="pn-button-container">
+                <template if:true={showPreviousButton}>
+                    <lightning-button variant="brand" label="Previous" onclick={handlePreviousPage}></lightning-button>
+                </template>
+                <template if:true={showNextButton}>
+                    <lightning-button variant="brand" label="Next" onclick={handleNextPage}></lightning-button>
+                </template>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Kids">
+            <div class="button-container">
+                
+                <lightning-button label="Toys" variant="brand" onclick={handleKidsToys}></lightning-button>
+                <lightning-button label="Accessories" variant="brand" onclick={handleKidsAccessories}></lightning-button>
+            </div>
+            <div class="card-container">
+                
+               
+                <template if:true={showToys}>
+                    <template for:each={toys} for:item="toy">
+                        <div key={toy.Id} class="card-wrapper" data-id={toy.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={toy.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={toy.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{toy.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                            <br/><i>{toy.Status__c}</i></h2> 
+                                        </template>
+                                        
+                                        <div class="quantity-container">
+                                            <label for="quantity7" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity7" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={toy.Id} data-product-name={toy.Name} data-product-status={toy.Status__c} data-total-stock={toy.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={toy.Id} data-product-name={toy.Name}></lightning-button> 
+                                </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={showAccessories}>
+                    <template for:each={accessories} for:item="accessory">
+                        <div key={accessory.Id} class="card-wrapper" data-id={accessory.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={accessory.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                        <template for:each={accessory.PricebookEntries} for:item="pricebookEntry" for:index="index">
+                                            <h2 key={pricebookEntry.Id}><b>{accessory.Name}</b> 
+                                            <br/><b>Price: </b>{pricebookEntry.UnitPrice}
+                                        <br/><i>{accessory.Status__c}</i></h2>
+                                        </template>
+                                        <div class="quantity-container">
+                                            <label for="quantity8" class="quantity-label">Quantity:</label>
+                                            <input type="number" id="quantity8" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                          </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={accessory.Id} data-product-name={accessory.Name} data-product-status={accessory.Status__c} data-total-stock={accessory.Total_Stock__c}></lightning-button> 
+                                    <lightning-button class="color" label="Wishlist" variant="brand" onclick={handleWishlistAction} data-product-id={accessory.Id} data-product-name={accessory.Name}></lightning-button> 
+                                    </div>
+                                    
+
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+        
+                </template>
+            </div>
+            <div class="pn-button-container">
+                <template if:true={showPreviousButton}>
+                    <lightning-button variant="brand" label="Previous" onclick={handlePreviousPage}></lightning-button>
+                </template>
+                <template if:true={showNextButton}>
+                    <lightning-button variant="brand" label="Next" onclick={handleNextPage}></lightning-button>
+                </template>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Cart">
+        <div class="card-container">
+            <template if:true={carts}>
+                <template for:each={carts} for:item="cart">
+                    <div key={cart.Id} class="card-wrapper" data-id={cart.Id}>
+                        <lightning-card class="card-tile">
+                            <div class="slds-card_body slds-card_body_inner">
+                                <div class="image-container">
+                                    <img src={cart.Product2.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                </div>
+                                <div class="detail">
+                                <h2><b>{cart.Product2.Name}</b></h2>
+                                <h2><b>Total Price: </b>{cart.TotalPrice}</h2>
+                                <div class="quantity-container">
+                                    <label for="quantity10" class="quantity-label">Quantity:</label>
+                                    <input type="number" id="quantity10" min="0" onchange={handleCartQuantityChange} class="quantity-input">
+                                  </div>
+                                <lightning-button label="Cancel" variant="destructive" onclick={handleCartCancel} data-cart-id={cart.Id} data-product-name={cart.Name}></lightning-button> 
+                            </div>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="checkout-button">
+            <lightning-button label="Payment" variant="brand" onclick={handlePayment}></lightning-button>
+        </div>
+        </lightning-tab>
+        <lightning-tab label="Wishlist">
+            <div class="card-container">
+                <template if:true={wishlists}>
+                    <template for:each={wishlists} for:item="wishlist">
+                        <div key={wishlist.Id} class="card-wrapper" data-id={wishlist.Id}>
+                            <lightning-card class="card-tile">
+                                <div class="slds-card_body slds-card_body_inner">
+                                    <div class="image-container">
+                                        <img src={wishlist.Product2Id__r.imageUrl__c} alt="image" height="200px" width="200px"/>
+                                    </div>
+                                    <div class="detail">
+                                            <h2><b>{wishlist.Product2Id__r.Name}</b> 
+                                            <br/><b>Price: </b>{wishlist.UnitPrice__c}
+                                            <br/><i>{wishlist.Product2Id__r.Status__c}</i></h2>
+                                            <div class="quantity-container">
+                                                <label for="quantity9" class="quantity-label">Quantity:</label>
+                                                <input type="number" id="quantity9" min="0" onchange={handleQuantityChange} class="quantity-input">
+                                              </div>
+                                    <lightning-button class="add-to-cart-color" label="Add To Cart" variant="brand" onclick={handleAction} data-product-id={wishlist.Id} data-product-name={wishlist.Name} data-total-stock={wishlist.Total_Stock__c}></lightning-button> 
+                                    <lightning-button label="Cancel" variant="destructive" onclick={handleWishlistCancel} data-cart-id={wishlist.Id} data-product-name={wishlist.Name}></lightning-button> 
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+        
+                </template>
+        
+            </div>
+            </lightning-tab>
+    </lightning-tabset>
+</lightning-card>
+</template>

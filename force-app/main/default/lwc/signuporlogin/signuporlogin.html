@@ -1,0 +1,42 @@
+<template>
+    <lightning-card>
+        <div class="button-container">
+            <lightning-button label="Signup" variant="brand" onclick={handleSignUp}></lightning-button>
+            <lightning-button label="Login" variant="brand" onclick={handleLogin}></lightning-button>
+        </div>
+        <template if:true={ShowSignup}>
+            <div class="signup-page">
+                <!--<lightning-card title="SignUp" class="signup-card">-->
+                    <lightning-card  class="signup-card">
+                    <div class="slds-var-p-bottom_large slds-var-p-left_large custom-form-container" style="width:500px">
+                        <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSignupSuccess}>
+                            <lightning-input-field field-name="Name"></lightning-input-field>
+                            <lightning-input-field field-name="Email"></lightning-input-field>
+                            <lightning-input-field field-name="Phone"></lightning-input-field>
+                            <lightning-input-field field-name="Company"></lightning-input-field>
+                            <lightning-input-field field-name="Password__c" required></lightning-input-field>
+                            <lightning-button variant="brand" type="submit" name="submit" label="Signup"></lightning-button>
+                        </lightning-record-edit-form>
+                    </div>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={ShowLogin}>
+            <div class="login-page">
+                <!--<lightning-card title="Login">-->
+                    <lightning-card>
+                    <div class="slds-var-p-bottom_large slds-var-p-left_large custom-form-container" style="width:500px">
+                        <lightning-input label="Email" value={email} onchange={handleEmailChange}></lightning-input>
+                        <lightning-input type="password" label="Password" value={password} onchange={handlePasswordChange}></lightning-input>
+                        <lightning-button class="login-button" variant="brand" type="submit" name="submit" label="Login" onclick={handleLoginSuccess}></lightning-button>
+                    </div>
+                    <template if:true={loginError}>
+                        <div class="slds-m-top_medium">
+                            <p style="color: red;justify-content:center;">Invalid Email or Password. Try Again...</p>
+                        </div>
+                    </template>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+</template>

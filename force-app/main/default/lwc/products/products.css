@@ -1,0 +1,108 @@
+.card-container {
+  background-image: url('https://i.pinimg.com/564x/7c/46/6b/7c466ba71c3732b298f045751cdf309e.jpg');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 70vh;
+  margin: 20px;
+  
+}
+.card-wrapper {
+    flex-basis: 200px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.button-container lightning-button {
+  margin-right: 10px;
+}
+
+.button-container + .card-container {
+  margin-top: 1rem;
+}
+
+.pn-button-container
+{
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin: 20px;
+}
+
+.card-tile {
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slds-card_body_inner {
+  padding: 16px;
+
+}
+.image-container img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  flex-basis: 200px;
+  margin-right: 20px;
+
+}
+
+.detail{
+  padding: 10px;
+  text-align: center;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-button {
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin: 20px;
+}
+.custom-form-container{
+  background-image:url('https://i.pinimg.com/564x/7c/46/6b/7c466ba71c3732b298f045751cdf309e.jpg') ; 
+  }
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .quantity-label {
+    margin-right: 0.5rem;
+  }
+  
+  .quantity-input {
+    width: 50px;
+  }
+  lightning-button.color {
+    --sds-c-button-brand-color-background:#f189a8;
+      --sds-c-button-text-color: #f4f7f9;
+      
+  }
+  lightning-button.add-to-cart-color {
+    --sds-c-button-brand-color-background:#e0cf70;
+      --sds-c-button-text-color: #f4f7f9;
+  }
+  

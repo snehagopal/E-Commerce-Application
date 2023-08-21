@@ -1,0 +1,22 @@
+<template>
+    <div class="payment-page">
+    <lightning-card title="Payment Form" if:true={showPaymentForm}>
+        <div class="slds-var-p-bottom_large slds-var-p-left_large custom-form-container" style="width:500px">
+            <lightning-input label="Address" value={address} onchange={handleAddressChange}></lightning-input>
+            <lightning-input label="Card Number" value={cardNumber} onchange={handleCardNumberChange}></lightning-input>
+            <lightning-input label="Expiration Date" value={expirationDate} onchange={handleExpirationDateChange}></lightning-input>
+            <lightning-input label="CVV" value={cvv} onchange={handleCvvChange}></lightning-input>
+        </div>
+        <lightning-button class="order-button" label="Confirm Order" variant="brand" onclick={handleConfirmOrder}></lightning-button>
+        
+    </lightning-card>
+    <template if:false={showPaymentForm}>
+        <div class="order-details">
+                    <p><b><i>Your Order was placed on {order.EffectiveDate}</i></b></p>
+                    <p><b><i>{orderPlacedMessage}</i></b></p>
+        </div>
+    </template>
+    
+
+    </div>
+</template>

@@ -1,0 +1,18 @@
+.payment-page{
+    background-image:url('https://i.pinimg.com/564x/7c/46/6b/7c466ba71c3732b298f045751cdf309e.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .custom-form-container{
+    background-image:url('https://i.pinimg.com/564x/7c/46/6b/7c466ba71c3732b298f045751cdf309e.jpg') ; 
+  }
+  .order-button{
+    margin:20px;
+  }
+  .order-details{
+    justify-content: center;
+  }
